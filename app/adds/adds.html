@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    
+    <body ng-controller="AddsCtrl">
+        <div class="container" data-ng-init="myFunc()">
+           
+            <div ng-repeat="add in addData.data | limitTo : 10 | filter:searchText" class="col-md-4">
+                <div class="row row-mod">
+                    <div class="col-md-20 column-pad">
+                        <div class="thumbnail image-pad">
+                            
+                            <div ng-repeat="value in add.advertisementAssets | toArray  | filter:{titlePicture:true}">
+                                <div ng-if= "$first">
+                                    <image ng-src="{{value.advertisementThumbnails.inventory_m.url}}" alt="Lights"/ class="scaled">
+                                    <div class = "top-image boxed">
+                                        <div ng-if ="add.purpose == 0"> <span> Mieten </span> </div>
+                                        <div ng-if ="add.purpose == 1 || add.purpose == 2"> <span> Kaufen </span> </div>
+                                    </div>
+                                    <div class="caption">
+                                        <p class="caption-text"> {{add.title}} </p>
+                                    </div>
+                                    <div class= "sinn"> 
+                                    <p> {{add.additionalId}} Sinn / Fleisbach </p>
+                                    </div>
+                                    <div class="price">
+                                    <p class = "currency">{{add.advertisementPrice.sellPrice |  currency:'€' }} </p>
+                                    <p class="details">{{add.realestateSummary.numberOfRooms}} Zimmer | </p> 
+                                    <p class="details"> ab {{add.realestateSummary.space | number:2 }} m<sup>2</sup></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </body></html>
