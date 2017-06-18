@@ -54,6 +54,7 @@ Now browse to the app at [`localhost:8000/index.html`][local-app-url].
 ## Directory Layout
 
 ```
+```
 app/                    --> all of the source files for the application
   app.css               --> default stylesheet
   components/           --> all app specific modules
@@ -75,4 +76,5 @@ karma.conf.js         --> config file for running unit tests with Karma
 e2e-tests/            --> end-to-end tests
   protractor-conf.js    --> Protractor config file
   scenarios.js          --> end-to-end scenarios to be run by Protractor
+  
 ```
